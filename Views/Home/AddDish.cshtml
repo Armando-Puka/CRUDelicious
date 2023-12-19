@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Add New Dish";
+}
+
+@model Dish
+
+<h1 class="text-center">Add a new Dish!</h1>
+
+<form asp-action="ValidationErrors" method="post">
+    <div class="form-group row justify-content-center mt-3">
+        @* Chef's Name | Name of Dish | # of Calories *@
+        <div class="form-group col-3">
+            <div>
+                <label asp-for="DishChef" class="mb-1">Chef's Name</label>
+                <input asp-for="DishChef" class="form-control border-dark border-2 mb-1">
+                <span asp-validation-for="DishChef" class="text-danger"></span>
+            </div>
+
+            <div class="mt-2">
+                <label asp-for="DishName" class="mb-1">Name of Dish</label>
+                <input asp-for="DishName" class="form-control border-dark border-2 mb-1">
+                <span asp-validation-for="DishName" class="text-danger"></span>
+            </div>
+
+            <div class="mt-2">
+                <label asp-for="DishCalories" class="mb-1"># of Calories</label>
+                <input asp-for="DishCalories" class="form-control border-dark border-2 mb-1">
+                <span asp-validation-for="DishCalories" class="text-danger"></span>
+            </div>
+        </div>
+
+        @* Tastiness *@
+        <div class="form-group col-3">
+            <label asp-for="DishTastiness" class="mb-1">Tastiness</label>
+            <select class="form-control border-dark border-2 mb-1" asp-for="DishTastiness"> 
+                <option value="" selected>Rate The Tastiness Of The Dish</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span asp-validation-for="DishTastiness" class="text-danger"></span>
+        </div>
+
+        @* Description *@
+        <div class="form-group col-3">
+            <div>
+                <label asp-for="DishDescription" class="mb-1">Description</label>
+                <textarea asp-for="DishDescription" class="form-control border-dark border-2 mb-1" rows="4"></textarea>
+                <span asp-validation-for="DishDescription" class="text-danger"></span>
+            </div>
+            <span class="d-flex justify-content-end">
+                <input type="submit" class="btn btn-outline-dark border-2 mt-4 shadow-sm btn-pad d-flex align-items-center" value="Add Dish">
+            </span>
+        </div>
+    </div>
+</form>
